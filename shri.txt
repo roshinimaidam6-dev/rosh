@@ -2,11 +2,9 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git'
+                git 'https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git'
             }
         }
 
@@ -26,16 +24,6 @@ pipeline {
             steps {
                 echo 'Deploying the project...'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-
-        failure {
-            echo 'Pipeline failed!'
         }
     }
 }
